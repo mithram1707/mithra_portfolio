@@ -1,113 +1,142 @@
-// Smooth scrolling for navigation links
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function(e) {
+// ── Particles Background ──
+function createParticles() {
+    const container = document.getElementById('particles');
+    const colors = ['#6c63ff', '#f39c12', '#e74c3c', '#27ae60', '#9b59b6', '#3498db'];
+    for (let i = 0; i < 40; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const size = Math.random() * 6 + 2;
+        p.style.cssText = `
+            width: ${size}px; height: ${size}px;
+            background: ${colors[Math.floor(Math.random() * colors.length)]};
+            left: ${Math.random() * 100}%;
+            animation-duration: ${Math.random() * 15 + 10}s;
+            animation-delay: ${Math.random() * 15}s;
+        `;
+        container.appendChild(p);
+    }
+}
+
+// ── Typewriter Effect ──
+const phrases = [
+    'CSBS Student 🎓',
+    'Problem Solver 💡',
+    'AI Enthusiast 🤖',
+    'Web Developer 💻',
+    'Competitive Coder ⚡',
+];
+
+let phraseIdx = 0, charIdx = 0, deleting = false;
+const typeEl = document.getElementById('typewriter');
+
+function typeWriter() {
+    const current = phrases[phraseIdx];
+    if (deleting) {
+        typeEl.textContent = current.substring(0, --charIdx);
+    } else {
+        typeEl.textContent = current.substring(0, ++charIdx);
+    }
+    if (!deleting && charIdx === current.length) {
+        setTimeout(() => deleting = true, 1800);
+    } else if (deleting && charIdx === 0) {
+        deleting = false;
+        phraseIdx = (phraseIdx + 1) % phrases.length;
+    }
+    setTimeout(typeWriter, deleting ? 60 : 100);
+}
+
+// ── Smooth Scroll for nav links ──
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
         e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        
-        if (targetSection) {
-            targetSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.getElementById('navMenu').classList.remove('open');
     });
 });
 
-// Active navigation highlighting
-window.addEventListener('scroll', function() {
-    const sections = document.querySelectorAll('.section');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
+// ── Active nav link on scroll ──
+const sections = document.querySelectorAll('.section');
+const navLinks = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', () => {
     let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
+    sections.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 200) current = sec.getAttribute('id');
     });
-    
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-            link.classList.add('active');
-        }
+        if (link.getAttribute('href') === '#' + current) link.classList.add('active');
     });
+
+    // Navbar solid on scroll
+    const navbar = document.getElementById('navbar');
+    navbar.style.background = window.scrollY > 50
+        ? 'rgba(10,10,15,0.98)'
+        : 'rgba(10,10,15,0.8)';
 });
 
-// Add fade-in animation for sections
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+// ── Hamburger Toggle ──
+document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('navMenu').classList.toggle('open');
+});
 
-const observer = new IntersectionObserver(function(entries) {
+// ── Scroll Reveal Animations ──
+const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
         }
     });
-}, observerOptions);
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-// Floating elements animation
-function createFloatingAnimation() {
-    const floatingElements = document.querySelectorAll('.float-element');
-    
-    floatingElements.forEach((element, index) => {
-        setInterval(() => {
-            const randomX = Math.random() * 20 - 10;
-            const randomY = Math.random() * 20 - 10;
-            element.style.transform += ` translate(${randomX}px, ${randomY}px)`;
-        }, 3000 + index * 500);
-    });
-}
-
-// Add sparkle effect on mouse move
-function addSparkleEffect() {
-    const homeSection = document.querySelector('.home-section');
-    
-    homeSection.addEventListener('mousemove', function(e) {
-        const sparkle = document.createElement('div');
-        sparkle.className = 'sparkle';
-        sparkle.style.left = e.clientX + 'px';
-        sparkle.style.top = e.clientY + 'px';
-        
-        document.body.appendChild(sparkle);
-        
-        setTimeout(() => {
-            sparkle.remove();
-        }, 1000);
-    });
-}
-
-// Apply animation to cards and content
-document.addEventListener('DOMContentLoaded', function() {
-    const animatedElements = document.querySelectorAll('.project-card, .blog-card, .education, .certifications, .skills');
-    
-    animatedElements.forEach(el => {
+function initReveal() {
+    const items = document.querySelectorAll(
+        '.about-card, .project-card, .blog-card, .resume-block, .timeline-item, .cert-item, .achievement-item'
+    );
+    items.forEach((el, i) => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = `opacity 0.6s ease ${i * 0.07}s, transform 0.6s ease ${i * 0.07}s`;
+        revealObserver.observe(el);
     });
-    
-    // Initialize floating animation
-    createFloatingAnimation();
-    addSparkleEffect();
-});
+}
 
-// Navbar background change on scroll
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.backdropFilter = 'blur(10px)';
-    } else {
-        navbar.style.background = '#fff';
-        navbar.style.backdropFilter = 'none';
+// ── Mouse Sparkle on Home ──
+function initSparkle() {
+    const home = document.querySelector('.home-section');
+    home.addEventListener('mousemove', e => {
+        const s = document.createElement('div');
+        const colors = ['#6c63ff','#f39c12','#e74c3c','#27ae60','#fff'];
+        const size = Math.random() * 8 + 4;
+        s.style.cssText = `
+            position: fixed; pointer-events: none; z-index: 999;
+            border-radius: 50%;
+            width: ${size}px; height: ${size}px;
+            background: ${colors[Math.floor(Math.random() * colors.length)]};
+            left: ${e.clientX - size/2}px; top: ${e.clientY - size/2}px;
+            animation: sparkleAnim 0.8s ease-out forwards;
+        `;
+        document.body.appendChild(s);
+        setTimeout(() => s.remove(), 800);
+    });
+}
+
+// Inject sparkle keyframes
+const styleSheet = document.createElement('style');
+styleSheet.textContent = `
+    @keyframes sparkleAnim {
+        0%   { transform: scale(0) rotate(0deg); opacity: 1; }
+        100% { transform: scale(2) rotate(180deg) translateY(-20px); opacity: 0; }
     }
+`;
+document.head.appendChild(styleSheet);
+
+// ── Init ──
+document.addEventListener('DOMContentLoaded', () => {
+    createParticles();
+    typeWriter();
+    initReveal();
+    initSparkle();
 });
