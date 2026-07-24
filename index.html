@@ -5,393 +5,415 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MITHRA - Portfolio</title>
     <link rel="stylesheet" href="portfolio.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Particles Background -->
-    <div class="particles" id="particles"></div>
+<canvas id="bgCanvas"></canvas>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-trail" id="cursorTrail"></div>
+<div class="scroll-bar" id="scrollBar"></div>
 
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="logo">M<span>ITHRA</span></div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#about" class="nav-link"><i class="fas fa-user"></i> About</a></li>
-                <li><a href="#projects" class="nav-link"><i class="fas fa-code"></i> Projects</a></li>
-                <li><a href="#resume" class="nav-link"><i class="fas fa-file-alt"></i> Resume</a></li>
-                <li><a href="#blogs" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span><span></span><span></span>
+<!-- NAV -->
+<nav class="navbar" id="navbar">
+    <div class="nav-inner">
+        <div class="logo">M<span>ITHRA</span></div>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#home"     class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#about"    class="nav-link"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="#projects" class="nav-link"><i class="fas fa-code"></i> Projects</a></li>
+            <li><a href="#resume"   class="nav-link"><i class="fas fa-file-alt"></i> Resume</a></li>
+            <li><a href="#blogs"    class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="section home-section">
+    <div class="floating-emojis">
+        <span class="fem" style="--d:0s;--x:8%;--y:15%">💻</span>
+        <span class="fem" style="--d:1s;--x:85%;--y:20%">🚀</span>
+        <span class="fem" style="--d:2s;--x:5%;--y:70%">⚡</span>
+        <span class="fem" style="--d:0.5s;--x:90%;--y:65%">🔥</span>
+        <span class="fem" style="--d:1.5s;--x:50%;--y:10%">✨</span>
+        <span class="fem" style="--d:3s;--x:20%;--y:85%">🎯</span>
+        <span class="fem" style="--d:2.5s;--x:75%;--y:80%">🌟</span>
+        <span class="fem" style="--d:4s;--x:40%;--y:90%">💡</span>
+        <span class="fem" style="--d:1.2s;--x:60%;--y:5%">🛠️</span>
+        <span class="fem" style="--d:3.5s;--x:15%;--y:45%">🎓</span>
+    </div>
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+    <div class="orb o3"></div>
+
+    <div class="home-container">
+        <div class="profile-wrap float-card" id="profileWrap">
+            <div class="profile-rings">
+                <div class="pring r1"></div>
+                <div class="pring r2"></div>
+                <div class="pring r3"></div>
+            </div>
+            <div class="profile-pic">
+                <img src="linkendin profil pic.jpeg" alt="MITHRA"
+                     onerror="this.style.display='none';document.getElementById('ini').style.display='flex'">
+                <div class="ini" id="ini">M</div>
+            </div>
+            <div class="status-dot">🟢 Available</div>
+        </div>
+
+        <div class="hero-text">
+            <p class="hi">👋 Hello, I'm</p>
+            <h1 class="name-glow">MITHRA</h1>
+            <div class="type-wrap"><span id="typer"></span><span class="blink">|</span></div>
+            <p class="sub">2nd Year CSBS Student @ Sri Eshwar College of Engineering</p>
+            <div class="stats-row">
+                <div class="stat-box float-card"><span class="sn">8+</span><span class="sl">Projects</span></div>
+                <div class="stat-box float-card"><span class="sn">9+</span><span class="sl">Certs</span></div>
+                <div class="stat-box float-card"><span class="sn">8.10</span><span class="sl">CGPA</span></div>
+                <div class="stat-box float-card"><span class="sn">600+</span><span class="sl">SkillRack</span></div>
+            </div>
+            <div class="btn-row">
+                <a href="#projects" class="btn bp">🚀 View Projects</a>
+                <a href="#resume"   class="btn bo">📄 Resume</a>
             </div>
         </div>
-    </nav>
+    </div>
+    <div class="scroll-hint"><div class="sh-dot"></div></div>
+</section>
 
-    <!-- Home Section -->
-    <section id="home" class="section home-section">
-        <div class="floating-shapes">
-            <div class="shape shape-1">💻</div>
-            <div class="shape shape-2">🚀</div>
-            <div class="shape shape-3">⚡</div>
-            <div class="shape shape-4">🔥</div>
-            <div class="shape shape-5">✨</div>
-            <div class="shape shape-6">🎯</div>
-            <div class="shape shape-7">🌟</div>
-            <div class="shape shape-8">💡</div>
-            <div class="shape shape-9">🛠️</div>
-            <div class="shape shape-10">🎓</div>
+<!-- ABOUT -->
+<section id="about" class="section">
+    <div class="sec-glow g-pink"></div>
+    <div class="container">
+        <div class="sec-head reveal">
+            <span class="tag">WHO I AM</span>
+            <h2>About <span class="gt">Me</span></h2>
         </div>
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-        <div class="container home-container">
-            <div class="profile-pic-wrapper">
-                <div class="profile-pic">
-                    <img src="linkendin profil pic.jpeg" alt="MITHRA" onerror="this.style.display='none'; document.getElementById('initials').style.display='flex'">
-                    <div class="initials" id="initials">M</div>
-                </div>
-                <div class="status-badge">🟢 Available</div>
+        <div class="grid4">
+            <div class="card float-card sparkle-card reveal">
+                <div class="card-glow"></div>
+                <div class="ci">🎓</div><h3>Education</h3>
+                <p>2nd Year B.Tech in Computer Science & Business Systems at Sri Eshwar College of Engineering.</p>
             </div>
-            <div class="hero-content">
-                <p class="greeting">👋 Hello, I'm</p>
-                <h1>MITHRA</h1>
-                <div class="typewriter-wrapper">
-                    <span class="typewriter" id="typewriter"></span><span class="cursor">|</span>
-                </div>
-                <p class="hero-desc">2nd Year CSBS Student @ Sri Eshwar College of Engineering</p>
-                <div class="hero-stats">
-                    <div class="stat"><span class="stat-num">8+</span><span class="stat-label">Projects</span></div>
-                    <div class="stat"><span class="stat-num">9+</span><span class="stat-label">Certifications</span></div>
-                    <div class="stat"><span class="stat-num">7.96</span><span class="stat-label">CGPA</span></div>
-                    <div class="stat"><span class="stat-num">600+</span><span class="stat-label">SkillRack</span></div>
-                </div>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary"><i class="fas fa-eye"></i> View Projects</a>
-                    <a href="#resume" class="btn btn-outline"><i class="fas fa-download"></i> Resume</a>
-                </div>
+            <div class="card float-card sparkle-card reveal">
+                <div class="card-glow"></div>
+                <div class="ci">🏫</div><h3>Background</h3>
+                <p>Completed schooling at Akshaya Academy Matric Higher Secondary School, Palani with outstanding scores.</p>
+            </div>
+            <div class="card float-card sparkle-card reveal">
+                <div class="card-glow"></div>
+                <div class="ci">💼</div><h3>Passion</h3>
+                <p>Passionate about AI, Web Development, and building innovative solutions that solve real-world problems.</p>
+            </div>
+            <div class="card float-card sparkle-card reveal">
+                <div class="card-glow"></div>
+                <div class="ci">🏆</div><h3>Achievements</h3>
+                <p>AI-Pitch 3rd Prize Winner, 80+ LeetCode, 600+ SkillRack problems solved, multiple hackathons.</p>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-dot"></div>
+        <div class="bio-card float-card sparkle-card reveal">
+            <div class="card-glow"></div>
+            <p>I am <strong>Mithra</strong>, a dedicated Computer Science and Business Systems student with a strong passion for programming, artificial intelligence, and full-stack development. I constantly explore new technologies and challenge myself through competitive coding and real-world projects.</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- About Section -->
-    <section id="about" class="section about-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">WHO I AM</span>
-                <h2>About <span class="gradient-text">Me</span></h2>
-            </div>
-            <div class="about-grid">
-                <div class="about-card">
-                    <div class="about-icon">🎓</div>
-                    <h3>Education</h3>
-                    <p>2nd Year B.Tech in Computer Science & Business Systems at Sri Eshwar College of Engineering.</p>
-                </div>
-                <div class="about-card">
-                    <div class="about-icon">🏫</div>
-                    <h3>Background</h3>
-                    <p>Completed my schooling at Akshaya Academy Matric Higher Secondary School, Palani with outstanding scores.</p>
-                </div>
-                <div class="about-card">
-                    <div class="about-icon">💼</div>
-                    <h3>Passion</h3>
-                    <p>Passionate about AI, Web Development, and building innovative solutions that solve real-world problems.</p>
-                </div>
-                <div class="about-card">
-                    <div class="about-icon">🏆</div>
-                    <h3>Achievements</h3>
-                    <p>AI-Pitch 3rd Prize Winner, 80+ LeetCode, 600+ SkillRack problems solved, participated in multiple hackathons.</p>
-                </div>
-            </div>
-            <div class="about-bio">
-                <p>I am <strong>Mithra</strong>, a dedicated Computer Science and Business Systems student with a strong passion for programming, artificial intelligence, and full-stack development. I constantly explore new technologies and challenge myself through competitive coding and real-world projects.</p>
-            </div>
+<!-- PROJECTS -->
+<section id="projects" class="section">
+    <div class="sec-glow g-green"></div>
+    <div class="container">
+        <div class="sec-head reveal">
+            <span class="tag">WHAT I BUILT</span>
+            <h2>My <span class="gt">Projects</span></h2>
         </div>
-    </section>
+        <div class="pgrid">
 
-    <!-- Projects Section -->
-    <section id="projects" class="section projects-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">WHAT I BUILT</span>
-                <h2>My <span class="gradient-text">Projects</span></h2>
+            <div class="pcard float-card sparkle-card reveal" data-modal="0">
+                <div class="card-glow"></div>
+                <div class="popup-badge">🚀 Click Me!</div>
+                <div class="pi">🚗</div>
+                <div class="ptag">Computer Vision</div>
+                <h3>Parking Slot Detection System</h3>
+                <p>Smart parking slot detection system identifying vacant and occupied spaces in real time using image processing techniques. Processes video feeds and visually marks available slots.</p>
+                <div class="techs"><span>Python</span><span>OpenCV</span><span>Image Processing</span></div>
             </div>
-            <div class="projects-grid">
 
-                <div class="project-card" data-color="#3498db">
-                    <div class="project-icon">🚗</div>
-                    <div class="project-tag">Computer Vision</div>
-                    <h3>Parking Slot Detection System</h3>
-                    <p>Designed and developed a smart parking slot detection system capable of identifying vacant and occupied parking spaces in real time using image processing techniques. Processes video feeds from a camera mounted above a parking area and visually marks available slots.</p>
-                    <div class="project-tech">
-                        <span>Python</span><span>OpenCV</span><span>Image Processing</span>
-                    </div>
-                </div>
-
-                <div class="project-card" data-color="#e74c3c">
-                    <div class="project-icon">👣</div>
-                    <div class="project-tag">Green Energy</div>
-                    <h3>Footsteps to Energy Conversion</h3>
-                    <p>Explores harvesting energy from human footsteps using piezoelectric materials or pressure-sensitive flooring systems. Covers basic principles of energy conversion from mechanical to electrical form with real-world applications such as powering streetlights and public infrastructure.</p>
-                    <div class="project-tech">
-                        <span>IoT</span><span>Piezoelectric</span><span>Energy Harvesting</span>
-                    </div>
-                </div>
-
-                <div class="project-card" data-color="#27ae60">
-                    <div class="project-icon">♻️</div>
-                    <div class="project-tag">Sustainability</div>
-                    <h3>Waste Management System</h3>
-                    <p>Waste-to-energy (WTE) conversion system that transforms waste materials into usable energy, addressing both waste management and energy generation challenges. Reduces landfill dependency and lowers environmental pollution by efficiently extracting energy from discarded materials.</p>
-                    <div class="project-tech">
-                        <span>Embedded Systems</span><span>Sensors</span><span>Data Analysis</span>
-                    </div>
-                </div>
-
-                <div class="project-card" data-color="#9b59b6">
-                    <div class="project-icon">👂</div>
-                    <div class="project-tag">AI / Assistive Tech</div>
-                    <h3>Hear-Aid</h3>
-                    <p>An AI-powered assistive system that detects, amplifies, and filters important sounds to help hearing-impaired individuals communicate effectively in real time. Bridges the gap between sound perception and comprehension.</p>
-                    <div class="project-tech">
-                        <span>AI/ML</span><span>Signal Processing</span><span>Python</span>
-                    </div>
-                </div>
-
-                <div class="project-card" data-color="#f39c12">
-                    <div class="project-icon">🔐</div>
-                    <div class="project-tag">FinTech / Security</div>
-                    <h3>UPI Fraud Detection</h3>
-                    <p>An intelligent fraud monitoring system that uses machine learning to analyze transaction patterns and detect suspicious UPI activities instantly. Enhances digital payment security with real-time alerts.</p>
-                    <div class="project-tech">
-                        <span>Machine Learning</span><span>Python</span><span>Data Science</span>
-                    </div>
-                </div>
-
-                <div class="project-card" data-color="#e67e22">
-                    <div class="project-icon">📰</div>
-                    <div class="project-tag">NLP / AI</div>
-                    <h3>Fake News Detection</h3>
-                    <p>An AI-based content verification system that identifies and flags misleading or false information by analyzing text patterns and source credibility. Helps combat misinformation in digital media.</p>
-                    <div class="project-tech">
-                        <span>NLP</span><span>ML</span><span>Text Analysis</span>
-                    </div>
-                </div>
-
+            <div class="pcard float-card sparkle-card reveal" data-modal="1">
+                <div class="card-glow"></div>
+                <div class="popup-badge">⚡ Click Me!</div>
+                <div class="pi">👣</div>
+                <div class="ptag">Green Energy</div>
+                <h3>Footsteps to Energy Conversion</h3>
+                <p>Harvesting energy from human footsteps using piezoelectric materials. Covers energy conversion from mechanical to electrical form with real-world applications like powering streetlights.</p>
+                <div class="techs"><span>IoT</span><span>Piezoelectric</span><span>Energy Harvesting</span></div>
             </div>
+
+            <div class="pcard float-card sparkle-card reveal" data-modal="2">
+                <div class="card-glow"></div>
+                <div class="popup-badge">♻️ Click Me!</div>
+                <div class="pi">♻️</div>
+                <div class="ptag">Sustainability</div>
+                <h3>Waste Management System</h3>
+                <p>Waste-to-energy conversion system transforming waste materials into usable energy, reducing landfill dependency and lowering environmental pollution.</p>
+                <div class="techs"><span>Embedded Systems</span><span>Sensors</span><span>Data Analysis</span></div>
+            </div>
+
+            <div class="pcard float-card sparkle-card reveal" data-modal="3">
+                <div class="card-glow"></div>
+                <div class="popup-badge">👂 Click Me!</div>
+                <div class="pi">👂</div>
+                <div class="ptag">AI / Assistive Tech</div>
+                <h3>Hear-Aid</h3>
+                <p>AI-powered assistive system that detects, amplifies, and filters important sounds to help hearing-impaired individuals communicate effectively in real time.</p>
+                <div class="techs"><span>AI/ML</span><span>Signal Processing</span><span>Python</span></div>
+            </div>
+
+            <div class="pcard float-card sparkle-card reveal" data-modal="4">
+                <div class="card-glow"></div>
+                <div class="popup-badge">🔐 Click Me!</div>
+                <div class="pi">🔐</div>
+                <div class="ptag">FinTech / Security</div>
+                <h3>UPI Fraud Detection</h3>
+                <p>Intelligent fraud monitoring system using machine learning to analyze transaction patterns and detect suspicious UPI activities instantly with real-time alerts.</p>
+                <div class="techs"><span>Machine Learning</span><span>Python</span><span>Data Science</span></div>
+            </div>
+
+            <div class="pcard float-card sparkle-card reveal" data-modal="5">
+                <div class="card-glow"></div>
+                <div class="popup-badge">📰 Click Me!</div>
+                <div class="pi">📰</div>
+                <div class="ptag">NLP / AI</div>
+                <h3>Fake News Detection</h3>
+                <p>AI-based content verification system identifying and flagging misleading information by analyzing text patterns and source credibility to combat misinformation.</p>
+                <div class="techs"><span>NLP</span><span>ML</span><span>Text Analysis</span></div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Resume Section -->
-    <section id="resume" class="section resume-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">MY BACKGROUND</span>
-                <h2>My <span class="gradient-text">Resume</span></h2>
+<!-- RESUME -->
+<section id="resume" class="section">
+    <div class="sec-glow g-pink"></div>
+    <div class="container">
+        <div class="sec-head reveal">
+            <span class="tag">MY BACKGROUND</span>
+            <h2>My <span class="gt">Resume</span></h2>
+            <button class="btn bp skills-btn" id="openSkillsBtn">⚡ View Skill Proficiency</button>
+        </div>
+        <div class="rgrid">
+
+            <div class="rblock float-card sparkle-card reveal">
+                <div class="card-glow"></div>
+                <div class="rhead"><i class="fas fa-graduation-cap"></i><h3>Education</h3></div>
+                <div class="timeline">
+                    <div class="titem">
+                        <div class="tdot" style="background:#E0115F"></div>
+                        <div class="tc">
+                            <span class="yr">2024 – 2028</span>
+                            <h4>B.Tech – CSBS</h4>
+                            <p>Sri Eshwar College of Engineering</p>
+                            <span class="badge bpink">CGPA: 8.10</span>
+                        </div>
+                    </div>
+                    <div class="titem">
+                        <div class="tdot" style="background:#4B6F44"></div>
+                        <div class="tc">
+                            <span class="yr">2023 – 2024</span>
+                            <h4>HSC</h4>
+                            <p>Akshaya Academy Matric Higher Secondary School</p>
+                            <span class="badge bgreen">82.5%</span>
+                        </div>
+                    </div>
+                    <div class="titem">
+                        <div class="tdot" style="background:#FF4FA3"></div>
+                        <div class="tc">
+                            <span class="yr">2021 – 2022</span>
+                            <h4>SSLC</h4>
+                            <p>Akshaya Academy Matric Higher Secondary School</p>
+                            <span class="badge bgreen">90.0%</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="resume-grid">
+            <div class="rblock float-card sparkle-card reveal">
+                <div class="card-glow"></div>
+                <div class="rhead"><i class="fas fa-certificate"></i><h3>Certifications</h3></div>
+                <div class="cgrid">
+                    <div class="citem"><span>🌱</span><span>Green Pledge</span></div>
+                    <div class="citem"><span>🤖</span><span>AI and Data Science – Intermediate</span></div>
+                    <div class="citem"><span>🧠</span><span>DeepSeek Foundations – Beginners</span></div>
+                    <div class="citem"><span>🐙</span><span>GitHub Copilot – Java & MySQL</span></div>
+                    <div class="citem"><span>🚩</span><span>CTF Event</span></div>
+                    <div class="citem"><span>🌐</span><span>Pauls University – Intro to INFOSYS Springboot</span></div>
+                    <div class="citem"><span>💻</span><span>Web Development – Intercollege Event</span></div>
+                    <div class="citem"><span>🥽</span><span>AR/VR – Intercollege Event</span></div>
+                    <div class="citem"><span>🏆</span><span>AI-Pitch – Winner</span></div>
+                </div>
+            </div>
 
-                <!-- Education -->
-                <div class="resume-block">
-                    <div class="resume-block-header">
-                        <i class="fas fa-graduation-cap"></i>
-                        <h3>Education</h3>
+            <div class="rblock float-card sparkle-card reveal">
+                <div class="card-glow"></div>
+                <div class="rhead"><i class="fas fa-tools"></i><h3>Skills</h3></div>
+                <div class="skills-sec">
+                    <div class="sg"><h4>Programming</h4>
+                        <div class="stags">
+                            <span class="st sp">C</span><span class="st sg2">C++</span>
+                            <span class="st sp">Python</span><span class="st sg2">Java</span>
+                            <span class="st sp">R (Beginner)</span>
+                        </div>
                     </div>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-dot" style="background:#3498db"></div>
-                            <div class="timeline-content">
-                                <span class="timeline-year">2024 – 2028</span>
-                                <h4>B.Tech – CSBS</h4>
-                                <p>Sri Eshwar College of Engineering</p>
-                                <span class="badge blue">CGPA: 7.96</span>
-                            </div>
+                    <div class="sg"><h4>Core Concepts</h4>
+                        <div class="stags">
+                            <span class="st sg2">DSA</span><span class="st sp">DBMS</span><span class="st sg2">OOP</span>
                         </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot" style="background:#e74c3c"></div>
-                            <div class="timeline-content">
-                                <span class="timeline-year">2023 – 2024</span>
-                                <h4>HSC</h4>
-                                <p>Akshaya Academy Matric Higher Secondary School</p>
-                                <span class="badge red">82.5%</span>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot" style="background:#27ae60"></div>
-                            <div class="timeline-content">
-                                <span class="timeline-year">2021 – 2022</span>
-                                <h4>SSLC</h4>
-                                <p>Akshaya Academy Matric Higher Secondary School</p>
-                                <span class="badge green">90.0%</span>
-                            </div>
+                    </div>
+                    <div class="sg"><h4>Web & Database & Tools</h4>
+                        <div class="stags">
+                            <span class="st sp">HTML</span><span class="st sg2">CSS</span>
+                            <span class="st sp">MySQL</span><span class="st sg2">Matplotlib</span>
+                            <span class="st sp">VSCode</span><span class="st sg2">GitHub</span>
+                            <span class="st sp">Jupyter</span><span class="st sg2">Canva</span>
+                            <span class="st sp">Excel</span><span class="st sg2">PowerPoint</span>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Certifications -->
-                <div class="resume-block">
-                    <div class="resume-block-header">
-                        <i class="fas fa-certificate"></i>
-                        <h3>Certifications</h3>
-                    </div>
-                    <div class="cert-grid">
-                        <div class="cert-item"><span class="cert-icon">🌱</span><span>Green Pledge</span></div>
-                        <div class="cert-item"><span class="cert-icon">🤖</span><span>AI and Data Science – Intermediate</span></div>
-                        <div class="cert-item"><span class="cert-icon">🧠</span><span>DeepSeek Foundations – Beginners</span></div>
-                        <div class="cert-item"><span class="cert-icon">🐙</span><span>GitHub Copilot – Java & MySQL</span></div>
-                        <div class="cert-item"><span class="cert-icon">🚩</span><span>CTF Event</span></div>
-                        <div class="cert-item"><span class="cert-icon">🌐</span><span>Pauls University – Intro to INFOSYS Springboot</span></div>
-                        <div class="cert-item"><span class="cert-icon">💻</span><span>Web Development – Intercollege Event</span></div>
-                        <div class="cert-item"><span class="cert-icon">🥽</span><span>AR/VR – Intercollege Event</span></div>
-                        <div class="cert-item"><span class="cert-icon">🏆</span><span>AI-Pitch – Winner</span></div>
-                    </div>
+            <div class="rblock float-card sparkle-card reveal">
+                <div class="card-glow"></div>
+                <div class="rhead"><i class="fas fa-trophy"></i><h3>Achievements</h3></div>
+                <div class="alist">
+                    <div class="aitem"><span>🏆</span><div><strong>AI-Pitch – 3rd Prize</strong><p>Intercollege event winner</p></div></div>
+                    <div class="aitem"><span>💻</span><div><strong>LeetCode – 80+ Problems</strong><p>Consistent competitive coder</p></div></div>
+                    <div class="aitem"><span>📊</span><div><strong>SkillRack – 600+ Problems</strong><p>Top performer on platform</p></div></div>
+                    <div class="aitem"><span>🎯</span><div><strong>CodeChef – 20+ Problems</strong><p>Active problem solver</p></div></div>
+                    <div class="aitem"><span>⚡</span><div><strong>Hackathon Participant</strong><p>Yugam Event Workshop</p></div></div>
+                    <div class="aitem"><span>🔬</span><div><strong>Project Expo Participant</strong><p>Showcased innovative projects</p></div></div>
                 </div>
+            </div>
 
-                <!-- Skills -->
-                <div class="resume-block">
-                    <div class="resume-block-header">
-                        <i class="fas fa-tools"></i>
-                        <h3>Skills</h3>
-                    </div>
-                    <div class="skills-section">
-                        <div class="skill-group">
-                            <h4>Programming</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag s-blue">C</span>
-                                <span class="skill-tag s-purple">C++</span>
-                                <span class="skill-tag s-green">Python</span>
-                                <span class="skill-tag s-orange">Java</span>
-                                <span class="skill-tag s-red">R (Beginner)</span>
-                            </div>
-                        </div>
-                        <div class="skill-group">
-                            <h4>Core Concepts</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag s-blue">DSA</span>
-                                <span class="skill-tag s-purple">DBMS</span>
-                                <span class="skill-tag s-green">OOP</span>
-                            </div>
-                        </div>
-                        <div class="skill-group">
-                            <h4>Web Technologies</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag s-orange">HTML</span>
-                                <span class="skill-tag s-red">CSS</span>
-                            </div>
-                        </div>
-                        <div class="skill-group">
-                            <h4>Database & Tools</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag s-blue">MySQL</span>
-                                <span class="skill-tag s-purple">Matplotlib</span>
-                                <span class="skill-tag s-green">VSCode</span>
-                                <span class="skill-tag s-orange">GitHub</span>
-                                <span class="skill-tag s-red">Jupyter Notebook</span>
-                                <span class="skill-tag s-blue">Canva</span>
-                                <span class="skill-tag s-purple">Excel</span>
-                                <span class="skill-tag s-green">PowerPoint</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        </div>
+    </div>
+</section>
 
-                <!-- Achievements -->
-                <div class="resume-block">
-                    <div class="resume-block-header">
-                        <i class="fas fa-trophy"></i>
-                        <h3>Achievements</h3>
-                    </div>
-                    <div class="achievements-list">
-                        <div class="achievement-item">
-                            <span class="ach-icon">🏆</span>
-                            <div><strong>AI-Pitch – 3rd Prize</strong><p>Intercollege event winner</p></div>
-                        </div>
-                        <div class="achievement-item">
-                            <span class="ach-icon">💻</span>
-                            <div><strong>LeetCode – 80+ Problems</strong><p>Consistent competitive coder</p></div>
-                        </div>
-                        <div class="achievement-item">
-                            <span class="ach-icon">📊</span>
-                            <div><strong>SkillRack – 600+ Problems</strong><p>Top performer on platform</p></div>
-                        </div>
-                        <div class="achievement-item">
-                            <span class="ach-icon">🎯</span>
-                            <div><strong>CodeChef – 20+ Problems</strong><p>Active problem solver</p></div>
-                        </div>
-                        <div class="achievement-item">
-                            <span class="ach-icon">⚡</span>
-                            <div><strong>Hackathon Participant</strong><p>Yugam Event Workshop</p></div>
-                        </div>
-                        <div class="achievement-item">
-                            <span class="ach-icon">🔬</span>
-                            <div><strong>Project Expo Participant</strong><p>Showcased innovative projects</p></div>
-                        </div>
-                    </div>
-                </div>
-
+<!-- BLOGS -->
+<section id="blogs" class="section">
+    <div class="sec-glow g-green"></div>
+    <div class="container">
+        <div class="sec-head reveal">
+            <span class="tag">MY THOUGHTS</span>
+            <h2>My <span class="gt">Blogs</span></h2>
+        </div>
+        <div class="bgrid">
+            <div class="bcard float-card sparkle-card reveal">
+                <div class="card-glow"></div>
+                <div class="be">🤖</div>
+                <div class="btag">AI / ML</div>
+                <h3>My Journey into Artificial Intelligence</h3>
+                <p>Exploring how AI is transforming industries and how I started my journey into machine learning and deep learning.</p>
+                <span class="bstatus">Coming Soon</span>
+            </div>
+            <div class="bcard float-card sparkle-card reveal">
+                <div class="card-glow"></div>
+                <div class="be">🗄️</div>
+                <div class="btag">Database</div>
+                <h3>Understanding Database Fundamentals</h3>
+                <p>A beginner's guide to database concepts, SQL queries, and why DBMS is the backbone of every application.</p>
+                <span class="bstatus">Coming Soon</span>
+            </div>
+            <div class="bcard float-card sparkle-card reveal">
+                <div class="card-glow"></div>
+                <div class="be">⚡</div>
+                <div class="btag">Green Tech</div>
+                <h3>Energy Harvesting from Footsteps</h3>
+                <p>How piezoelectric technology can revolutionize sustainable energy generation in urban environments.</p>
+                <span class="bstatus">Coming Soon</span>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Blogs Section -->
-    <section id="blogs" class="section blogs-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">MY THOUGHTS</span>
-                <h2>My <span class="gradient-text">Blogs</span></h2>
-            </div>
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <div class="blog-emoji">🤖</div>
-                    <div class="blog-tag">AI / ML</div>
-                    <h3>My Journey into Artificial Intelligence</h3>
-                    <p>Exploring how AI is transforming industries and how I started my journey into machine learning and deep learning.</p>
-                    <span class="blog-status">Coming Soon</span>
-                </div>
-                <div class="blog-card">
-                    <div class="blog-emoji">🗄️</div>
-                    <div class="blog-tag">Database</div>
-                    <h3>Understanding Database Fundamentals</h3>
-                    <p>A beginner's guide to database concepts, SQL queries, and why DBMS is the backbone of every application.</p>
-                    <span class="blog-status">Coming Soon</span>
-                </div>
-                <div class="blog-card">
-                    <div class="blog-emoji">⚡</div>
-                    <div class="blog-tag">Green Tech</div>
-                    <h3>Energy Harvesting from Footsteps</h3>
-                    <p>How piezoelectric technology can revolutionize sustainable energy generation in urban environments.</p>
-                    <span class="blog-status">Coming Soon</span>
-                </div>
-            </div>
+<!-- ═══ PROJECT MODAL ═══ -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box" id="modalBox">
+        <button class="modal-close" id="modalClose">✕</button>
+        <div class="modal-emoji" id="modalEmoji"></div>
+        <div class="modal-tag" id="modalTag"></div>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-desc" id="modalDesc"></p>
+        <div class="modal-techs" id="modalTechs"></div>
+        <div class="modal-sparkle-ring" id="modalSparkleRing"></div>
+    </div>
+</div>
+
+<!-- ═══ SKILLS PROGRESS OVERLAY ═══ -->
+<div class="skills-modal-overlay" id="skillsModalOverlay">
+    <div class="skills-modal-box">
+        <button class="modal-close" id="skillsModalClose">✕</button>
+        <h2>⚡ Skill <span class="gt">Proficiency</span></h2>
+        <div class="skill-bars">
+            <div class="skill-bar-item"><span>Python</span><div class="bar"><div class="bar-fill" data-w="85"></div></div><span class="pct">85%</span></div>
+            <div class="skill-bar-item"><span>Java</span><div class="bar"><div class="bar-fill" data-w="80"></div></div><span class="pct">80%</span></div>
+            <div class="skill-bar-item"><span>C / C++</span><div class="bar"><div class="bar-fill" data-w="75"></div></div><span class="pct">75%</span></div>
+            <div class="skill-bar-item"><span>HTML / CSS</span><div class="bar"><div class="bar-fill" data-w="78"></div></div><span class="pct">78%</span></div>
+            <div class="skill-bar-item"><span>MySQL</span><div class="bar"><div class="bar-fill" data-w="72"></div></div><span class="pct">72%</span></div>
+            <div class="skill-bar-item"><span>Machine Learning</span><div class="bar"><div class="bar-fill" data-w="65"></div></div><span class="pct">65%</span></div>
+            <div class="skill-bar-item"><span>DSA</span><div class="bar"><div class="bar-fill" data-w="70"></div></div><span class="pct">70%</span></div>
+            <div class="skill-bar-item"><span>GitHub</span><div class="bar"><div class="bar-fill" data-w="82"></div></div><span class="pct">82%</span></div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">M<span>ITHRA</span></div>
-                <p>Computer Science & Business Systems Student</p>
-                <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#resume">Resume</a>
-                    <a href="#blogs">Blogs</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 MITHRA. All rights reserved. Built with ❤️</p>
-            </div>
+<!-- PROJECT MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box" id="modalBox">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <div class="modal-emoji" id="modalEmoji"></div>
+        <div class="modal-tag" id="modalTag"></div>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-desc" id="modalDesc"></p>
+        <div class="modal-techs" id="modalTechs"></div>
+    </div>
+</div>
+
+<!-- SKILLS MODAL -->
+<div class="skills-overlay" id="skillsOverlay">
+    <div class="skills-box">
+        <button class="modal-close" id="skillsClose">&times;</button>
+        <h2>⚡ Skill <span class="gt">Proficiency</span></h2>
+        <div class="skill-bars">
+            <div class="sb-item"><span>Python</span><div class="bar"><div class="bar-fill" data-w="85"></div></div><span class="pct">85%</span></div>
+            <div class="sb-item"><span>Java</span><div class="bar"><div class="bar-fill" data-w="80"></div></div><span class="pct">80%</span></div>
+            <div class="sb-item"><span>C / C++</span><div class="bar"><div class="bar-fill" data-w="75"></div></div><span class="pct">75%</span></div>
+            <div class="sb-item"><span>HTML / CSS</span><div class="bar"><div class="bar-fill" data-w="78"></div></div><span class="pct">78%</span></div>
+            <div class="sb-item"><span>MySQL</span><div class="bar"><div class="bar-fill" data-w="72"></div></div><span class="pct">72%</span></div>
+            <div class="sb-item"><span>Machine Learning</span><div class="bar"><div class="bar-fill" data-w="65"></div></div><span class="pct">65%</span></div>
+            <div class="sb-item"><span>DSA</span><div class="bar"><div class="bar-fill" data-w="70"></div></div><span class="pct">70%</span></div>
+            <div class="sb-item"><span>GitHub</span><div class="bar"><div class="bar-fill" data-w="82"></div></div><span class="pct">82%</span></div>
         </div>
-    </footer>
+    </div>
+</div>
 
-    <script src="portfolio.js"></script>
+<button class="morph-btn" id="morphBtn">🌀</button>
+<span class="morph-label">Morph Particles</span>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-logo">M<span>ITHRA</span></div>
+        <p>Computer Science & Business Systems Student</p>
+        <div class="flinks">
+            <a href="#home">Home</a><a href="#about">About</a>
+            <a href="#projects">Projects</a><a href="#resume">Resume</a><a href="#blogs">Blogs</a>
+        </div>
+        <p class="fcopy">&copy; 2024 MITHRA. Built with ❤️</p>
+    </div>
+</footer>
+
+<script src="portfolio.js"></script>
 </body>
 </html>
